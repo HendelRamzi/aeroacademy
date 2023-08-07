@@ -682,7 +682,10 @@
 
 .phone-number-box1 .icon {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0px;
     width: 50px;
     height: 50px;
     background-color: rgba(var(--thm-base-rgb), 1.0);
@@ -710,20 +713,14 @@
     transform: scaleX(1.0);
 }
 
-.phone-number-box1 .icon span::before {
+.phone-number-box1 .icon svg {
     position: relative;
     display: block;
-    color: #ffffff;
-    font-size: 25px;
-    line-height: 50px;
-    text-align: center;
+    fill: #ffffff;
     transition: all 200ms linear;
     transition-delay: 0.1s;
 }
 
-.phone-number-box1:hover .icon span::before {
-    color: #fff;
-}
 
 .phone-number-box1 .phone {
     position: relative;

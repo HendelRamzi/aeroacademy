@@ -61,12 +61,14 @@
 
 
 .single-footer-widget--company-info {
-    max-width: 320px;
+    /* max-width: 320px; */
 }
 
 .single-footer-widget .our-company-info {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 .single-footer-widget .our-company-info .text-box {
@@ -121,7 +123,8 @@
 
 .footer-social-link {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: end;
     border-top: 1px solid rgba(255, 255, 255, 0.10);
     padding-top: 40px;
 }
@@ -143,13 +146,14 @@
 
 .footer-social-link ul li a {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0px;
     height: 50px;
     width: 50px;
     background: #ffffff;
     color: var(--thm-black);
-    font-size: 16px;
-    text-align: center;
     transition: all 200ms linear;
     transition-delay: 0.1s;
     z-index: 1;

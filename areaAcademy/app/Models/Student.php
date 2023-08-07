@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Formation extends Model
+class Student extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
-        'name', 'picture', "desc", "slug"
+        'first_name', "last_name", "email", "phone",
+        "address","form"
     ];
+
+
+
 }

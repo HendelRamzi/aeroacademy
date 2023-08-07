@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Formation;
 
 use App\Models\Formation;
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -33,9 +34,10 @@ class Create extends Component
 
 
     public function addFormation(){
-        // dd($this->pic);
+        // dd(Str::slug($this->formation->name, '-'));
         $this->validate(); 
         try{
+
             // process the formation.desc
             $this->formation->desc = $this->desc ; 
 
@@ -43,6 +45,10 @@ class Create extends Component
             // process the picture
             $thumb_url = $this->pic->store('formation');
             $this->formation->picture = $thumb_url ;
+
+
+            // Handle the slug
+            $this->formation->slug = Str::slug($this->formation->name, '-');
 
 
             // Store in the db

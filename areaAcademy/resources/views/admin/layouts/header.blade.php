@@ -15,6 +15,11 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{route('admin.contacts.index')}}" class="nav-link">Contacts</a>
       </li>
+
+      
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{route('admin.inscriptions.index')}}" class="nav-link">Inscriptions</a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->
@@ -23,7 +28,7 @@
 
 
       <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
+      {{-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
@@ -48,7 +53,7 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li> --}}
 
 
 

@@ -18,9 +18,9 @@ class Index extends Component
         try{
             $formation = Formation::find($id); 
             $formation->delete(); 
-            session()->flush('success', "La formation a bien été supprimée."); 
+            session()->flash('success', "La formation a bien été supprimée."); 
         }catch(\Exception $error){
-            session()->flush('error', "Un problème est survenu. Contactez les developpeurs"); 
+            session()->flash('error', "Un problème est survenu. Contactez les developpeurs"); 
         }
     }
 

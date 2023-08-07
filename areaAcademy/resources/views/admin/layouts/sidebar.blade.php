@@ -58,6 +58,21 @@
             </ul>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" style="cursor: pointer">
+              <p>
+                Inscriptions
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.inscriptions.index')}}" class="nav-link">
+                  <p>Liste des inscriptions</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
 
 
         </ul>

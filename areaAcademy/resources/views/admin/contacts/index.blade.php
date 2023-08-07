@@ -8,6 +8,7 @@
 
 
 @push('custom-css')
+@livewireStyles
     
 @endpush
 
@@ -39,6 +40,8 @@
 @endsection
 
 @push('custom-js')
+@livewireScripts
+
     @vite([
         "resources/js/admin/plugins/jquery.js",
         "resources/js/admin/plugins/bootstrap.bundle.js",

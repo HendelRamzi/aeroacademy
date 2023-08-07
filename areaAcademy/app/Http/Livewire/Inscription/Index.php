@@ -1,31 +1,33 @@
 <?php
 
-namespace App\Http\Livewire\Contact;
+namespace App\Http\Livewire\Inscription;
 
-use App\Models\Contact;
+use App\Models\Student;
 use Livewire\Component;
 
 class Index extends Component
 {
 
-    public $contacts ; 
+    public $students; 
 
     public function mount(){
-        $this->contacts = Contact::all(); 
+        $this->students = Student::all(); 
     }
 
-    public function deleteContact($id){
+
+    public function deleteStudent($id){
         try{
-            $contact = Contact::find($id); 
-            $contact->delete(); 
+            $student = Student::find($id); 
+            $student->delete(); 
             session()->flash('success', "Le contact a bien été supprimée."); 
         }catch(\Exception $error){
             session()->flash('error', "Un problème est survenu. Contactez les developpeurs"); 
         }
     }
 
+
     public function render()
     {
-        return view('livewire.contact.index');
+        return view('livewire.inscription.index');
     }
 }

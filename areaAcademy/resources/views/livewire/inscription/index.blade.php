@@ -1,23 +1,5 @@
 <div class="row">
-  @if (session()->has('error'))
-  <div class="col-12">
-      <div class="alert alert-danger">
-          {{ session('error') }}
-      </div>
-  </div>
-@endif
-@if (session()->has('success'))
-  <div class="col-12">
-      <div class="alert alert-success">
-          {{ session('success') }}
-      </div>
-  </div>
-@endif
 
-
-    <div class="col-12 d-flex justify-content-end mb-3">
-        <a class="btn btn-success "  href="{{route('admin.formations.create')}}">Ajouter une formation</a>
-    </div>
     <div class="col-md-12">
         <div class="card">
           <div class="card-header">
@@ -29,27 +11,32 @@
               <thead>
                 <tr>
                   <th style="width: 10px">#</th>
-                  <th>name</th>
-                  <th>créé le </th>
+                  <th>nom</th>
+                  <th>prenom</th>
+                  <th>email</th>
+                  <th>tel</th>
+                  <th>envoyer le </th>
                   <th>actions</th>
                 </tr>
               </thead>
               <tbody>
-                @foreach ($formations as $formation)
+                @foreach ($students as $student)
                 <tr>
-                    <td>{{$formation->id}}</td>
-                    <td>{{$formation->name}}</td>
-                    <td>{{$formation->created_at}}</td>
+                    <td>{{$student->id}}</td>
+                    <td>{{$student->first_name}}</td>
+                    <td>{{$student->last_name}}</td>
+                    <td>{{$student->email}}</td>
+                    <td>{{$student->phone}}</td>
+                    <td>{{$student->created_at}}</td>
                     <td>
                       <div class="dropdown">
                           <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Action
                           </button>
                           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="{{route('admin.formations.details', ['id' => $formation->id])}}">Consulter</a>
-                            <a class="dropdown-item" href="{{route('admin.formations.edit', ['id' => $formation->id])}}">Modifier</a>
+                            <a class="dropdown-item" href="{{route('admin.inscriptions.details', ['id' => $student->id])}}">Consulter</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" wire:wlick="deleteformation({{$formation->id}})" style="curs">Supprimer</a>
+                            <a class="dropdown-item text-danger" wire:wlick="deleteStudent({{$student->id}})">Supprimer</a>
                           </div>
                         </div>
                     </td>

@@ -8,6 +8,8 @@
 
 
 @push('custom-css')
+@livewireStyles
+
     @vite([
         "resources/css/modules/banner.css",
         "resources/css/modules/services.css",
@@ -32,79 +34,30 @@
             <div class="slider-box">
                 <!-- Banner Carousel -->
                 <div class="banner-carousel owl-theme owl-carousel">
-                    <!-- Slide -->
-                    <div class="slide">
-                        <div class="image-layer" style="background-image:url(assets/images/slides/slide-v1-1.jpg)">
-                        </div>
-                        <div class="shape-box"></div>
-                        <div class="auto-container">
-                            <div class="content">
-                                <div class="big-title">
-                                    <h2>
-                                        Consulting<span class="dotted"></span><br>
-                                        Financial<span class="dotted"></span><br>
-                                        Advice<span class="dotted"></span>
-                                    </h2>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="about.html">
-                                        <span class="txt">
-                                            discover more<i class="icon-refresh arrow"></i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide -->
-                    <div class="slide">
-                        <div class="image-layer" style="background-image:url(assets/images/slides/slide-v1-2.jpg)">
-                        </div>
-                        <div class="shape-box"></div>
-                        <div class="auto-container">
-                            <div class="content">
-                                <div class="big-title">
-                                    <h2>
-                                        Sultin Best<span class="dotted"></span><br>
-                                        Consulting<span class="dotted"></span><br>
-                                        Services<span class="dotted"></span>
-                                    </h2>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="about.html">
-                                        <span class="txt">
-                                            discover more<i class="icon-refresh arrow"></i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide -->
-                    <div class="slide">
-                        <div class="image-layer" style="background-image:url(assets/images/slides/slide-v1-3.jpg)">
-                        </div>
-                        <div class="shape-box"></div>
-                        <div class="auto-container">
-                            <div class="content">
-                                <div class="big-title">
-                                    <h2>
-                                        Consulting<span class="dotted"></span><br>
-                                        Financial<span class="dotted"></span><br>
-                                        Advice<span class="dotted"></span>
-                                    </h2>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="about.html">
-                                        <span class="txt">
-                                            discover more<i class="icon-refresh arrow"></i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
+                    @foreach ($formations as $formation)
+                        <!-- Slide -->
+                        <div class="slide">
+                            <div class="image-layer" style="background-image:url({{asset($formation->picture)}})"></div>
+                            <div class="shape-box"></div>
+                            <div class="auto-container">
+                                <div class="content">
+                                    <div class="big-title">
+                                        <h2>
+                                            {{$formation->name}}
+                                        </h2>
+                                    </div>
+                                    <div class="btns-box">
+                                        <a class="btn-one" href="{{route('website.formation-details', ['slug' => $formation->slug])}}">
+                                            <span class="txt">
+                                                Plus de détails
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach                    
                 </div>
             </div>
         </section>
@@ -499,192 +452,51 @@
 
 
 
-          <!--Start Service Style2 Area-->
-          <section id="services" class="service-style2-area">
+        <!--Start Service Style2 Area-->
+        <section id="services" class="service-style2-area">
             <div class="service-style2--primary-bg"></div>
             <div class="container">
                 <div class="sec-title text-center">
                     <div class="sub-title">
                         <div class="border-box"></div>
-                        <h3>Our Services</h3>
+                        <h3>Nos formations</h3>
                     </div>
-                    <h2>What We’re Offering</h2>
+                    <h2>Explorez nos fomations</h2>
                 </div>
                 <div class="row text-right-rtl">
 
 
+                    @foreach ($formations as $i => $formation)
+                        <!--Start Single Service Style2-->
+                        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="single-service-style2">
+                                <div class="img-holder">
+                                    <div class="inner">
+                                        <img src="{{ asset($formation->picture) }}" alt="">
+                                    </div>
 
-                    <!--Start Single Service Style2-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                        <div class="single-service-style2">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="{{ Vite::asset('resources/imgs/2.jpg') }}" alt="">
                                 </div>
-                                <div class="icon">
-                                    <span class="icon-creative"></span>
-                                </div>
-                            </div>
-                            <div class="title-holder">
-                                <h3><a href="services-details.html">Consumer Product</a></h3>
-                                <div class="text">
-                                    <p>
-                                        Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                        sed.
-                                    </p>
-                                </div>
-                                <div class="btn-box">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Service Style2-->
-
-
-                    <!--Start Single Service Style2-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInDown" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <div class="single-service-style2">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="{{ Vite::asset('resources/imgs/2.jpg') }}" alt="">
-                                </div>
-                                <div class="icon">
-                                    <span class="icon-business"></span>
-                                </div>
-                            </div>
-                            <div class="title-holder">
-                                <h3><a href="services-details.html">Banking Advising</a></h3>
-                                <div class="text">
-                                    <p>
-                                        Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                        sed.
-                                    </p>
-                                </div>
-                                <div class="btn-box">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
+                                <div class="title-holder">
+                                    <h3><a href="{{route('website.formation-details', ['slug' => $formation->slug])}}" >{{$formation->name}}</a></h3>
+                                    <div class="text">
+                                        <p>
+                                            Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
+                                            sed.
+                                        </p>
+                                    </div>
+                                    <div class="btn-box">
+                                        <a href="{{route('website.formation-details', ['slug' => $formation->slug])}}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!--End Single Service Style2-->
+                        <!--End Single Service Style2-->
+                    @endforeach
 
-
-
-
-                    <!--Start Single Service Style2-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1500ms">
-                        <div class="single-service-style2">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="{{ Vite::asset('resources/imgs/2.jpg') }}" alt="">
-                                </div>
-                                <div class="icon">
-                                    <span class="icon-global"></span>
-                                </div>
-                            </div>
-                            <div class="title-holder">
-                                <h3><a href="services-details.html">Marketing Rules</a></h3>
-                                <div class="text">
-                                    <p>
-                                        Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                        sed.
-                                    </p>
-                                </div>
-                                <div class="btn-box">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Service Style2-->
-
-
-
-                    <!--Start Single Service Style2-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                        <div class="single-service-style2">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="{{ Vite::asset('resources/imgs/2.jpg') }}" alt="">
-                                </div>
-                                <div class="icon">
-                                    <span class="icon-creative"></span>
-                                </div>
-                            </div>
-                            <div class="title-holder">
-                                <h3><a href="services-details.html">Consumer Product</a></h3>
-                                <div class="text">
-                                    <p>
-                                        Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                        sed.
-                                    </p>
-                                </div>
-                                <div class="btn-box">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Service Style2-->
-
-
-                    <!--Start Single Service Style2-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInDown" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <div class="single-service-style2">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="{{ Vite::asset('resources/imgs/2.jpg') }}" alt="">
-                                </div>
-                                <div class="icon">
-                                    <span class="icon-business"></span>
-                                </div>
-                            </div>
-                            <div class="title-holder">
-                                <h3><a href="services-details.html">Banking Advising</a></h3>
-                                <div class="text">
-                                    <p>
-                                        Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                        sed.
-                                    </p>
-                                </div>
-                                <div class="btn-box">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Service Style2-->
-
-
-
-
-                    <!--Start Single Service Style2-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1500ms">
-                        <div class="single-service-style2">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="{{ Vite::asset('resources/imgs/2.jpg') }}" alt="">
-                                </div>
-                                <div class="icon">
-                                    <span class="icon-global"></span>
-                                </div>
-                            </div>
-                            <div class="title-holder">
-                                <h3><a href="services-details.html">Marketing Rules</a></h3>
-                                <div class="text">
-                                    <p>
-                                        Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                        sed.
-                                    </p>
-                                </div>
-                                <div class="btn-box">
-                                    <a href="#"><span class="icon-right-arrow"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Service Style2-->
 
                 </div>
             </div>
@@ -693,110 +505,15 @@
 
 
 
-       <!--Start Main Contact Form Area-->
-       <section id="contact" class="main-contact-form-area">
-            <div class="container">
-                <div class="sec-title text-center">
-                    <div class="sub-title">
-                        <div class="border-box"></div>
-                        <h3>Contact with us</h3>
-                    </div>
-                    <h2>Write a Message</h2>
-                </div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="contact-form">
-                            <form id="contact-form" name="contact_form" class="default-form2"
-                                action="assets/inc/sendmail.php" method="post">
-
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group">
-                                            <div class="input-box">
-                                                <input type="text" name="form_name" id="formName"
-                                                    placeholder="Full Name" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group">
-                                            <div class="input-box">
-                                                <input type="email" name="form_email" id="formEmail"
-                                                    placeholder="Email Address" required="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group">
-                                            <div class="input-box">
-                                                <input type="text" name="form_phone" value="" id="formPhone"
-                                                    placeholder="Phone">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group">
-                                            <div class="input-box">
-                                                <input type="text" name="form_subject" value="" id="formSubject"
-                                                    placeholder="Subject">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="form-group">
-                                            <div class="input-box">
-                                                <textarea name="form_message" id="formMessage"
-                                                    placeholder="Write a Message" required=""></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xl-12 text-center">
-                                        <div class="button-box">
-                                            <input id="form_botcheck" name="form_botcheck" class="form-control"
-                                                type="hidden" value="">
-                                            <button class="btn-one" type="submit" data-loading-text="Please wait...">
-                                                <span class="txt">
-                                                    send a message
-                                                </span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--End Main Contact Form Area-->
-
-
-
-
-
-
-
-
-
-
-
+        <!--Start Main Contact Form Area-->
+        @livewire('contact.create')
     
 @endsection
 
 
 
 @push('custom-js')
+  @livewireScripts
     
     {{-- JS Files --}}
     @vite([

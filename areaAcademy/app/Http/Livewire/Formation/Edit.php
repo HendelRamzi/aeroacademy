@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Formation;
 
+use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -38,6 +39,11 @@ class Edit extends Component
                 $url  = $this->pic->store('formation');
                 $this->formation->picture = $url ; 
             }
+
+
+
+            // Handle the slug change 
+            $this->formation->slug = Str::slug($this->formation->name, '-');
 
             // save to the db
             $this->formation->save(); 

@@ -25,8 +25,8 @@
                     <td>{{$contact->id}}</td>
                     <td>{{$contact->name}}</td>
                     <td>{{$contact->email}}</td>
-                    <td>{{$contact->tel}}</td>
-                    <td>{{$contact->Subject}}</td>
+                    <td>{{$contact->phone}}</td>
+                    <td>{{$contact->subject}}</td>
                     <td>{{$contact->created_at}}</td>
                     <td>
                       <div class="dropdown">

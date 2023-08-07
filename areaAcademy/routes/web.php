@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Contact;
 use App\Models\Formation;
+use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,19 +17,54 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('website.home');
+    $formations = Formation::all()->take(6); 
+    return view('website.home', [
+        'formations' => $formations
+    ]);
 })->name('website.home');
 
 Route::get('/formations', function(){
-    return view('website.formation');
+    $formations = Formation::all(); 
+    return view('website.formation', [
+        'formations' => $formations
+
+    ]);
 })->name('website.formations');
 
-
+Route::get('/formations/{slug}', function($slug){
+    try{
+        $formation  = Formation::where('slug', $slug)->first(); 
+        $formations = Formation::all(); 
+        $content  = json_decode($formation->desc, true); 
+        return view('website.formation-details', [
+            'formation' => $formation,
+            "formations" => $formations,
+            "content" => json_encode( $content['blocks'])
+        ]);
+    }catch(\Exception $error){
+        // Handel errors
+    }
+})->name('website.formation-details');
 
 Route::get('/contactez-nous', function(){
     return view('website.contact');
 })->name('website.contact');
 
+Route::get('/vous-inscrire', function(){
+    return view("website.vous-inscrire");
+})->name('website.vous-inscrire');
+
+
+
+
+
+
+
+
+
+Route::get('soon', function(){
+    return view('website.coming-soon'); 
+})->name('website.soon');
 
 Auth::routes();
 
@@ -37,6 +74,22 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::get('/admin', function () {
 //     return view('admin.dashboard');
 // })->name('admin.dashboard');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Route::prefix('admin')->group(function(){
@@ -90,11 +143,12 @@ Route::prefix('admin')->group(function(){
             return view('admin.contacts.index');
         })->name('admin.contacts.index');
 
+
         Route::get('/details/{id}', function($id){
             try{
-                $formation = Contact::find($id); 
+                $contact = Contact::find($id); 
                 return view('admin.contacts.details', [
-                    'formation' => $formation
+                    'contact' => $contact
                 ]);
             }catch(\Exception $e){
                 // Handle the error
@@ -107,7 +161,28 @@ Route::prefix('admin')->group(function(){
 
 
     
-    
+    Route::prefix('inscriptions')->group(function(){
+        Route::get('/list', function(){
+            return view('admin.inscriptions.index');
+        })->name('admin.inscriptions.index');
+
+
+
+
+        Route::get('/details/{id}', function($id){
+            try{
+                $student = Student::find($id); 
+                return view('admin.inscriptions.details', [
+                    'student' => $student
+                ]);
+            }catch(\Exception $e){
+                // Handle the error
+            }
+        })->name('admin.inscriptions.details');
+
+
+
+    }); 
 
 
 

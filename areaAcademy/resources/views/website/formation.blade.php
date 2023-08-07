@@ -56,194 +56,39 @@
     <div class="container">
         <div class="row">
 
-            <!--Start Single Service Style2-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                <div class="single-service-style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="assets/images/services/service-v1-1.jpg" alt="">
+
+            @foreach ($formations as $formation)
+                <!--Start Single Service Style2-->
+                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                    <div class="single-service-style2">
+                        <div class="img-holder">
+                            <div class="inner">
+                                <img src="{{asset($formation->picture)}}" alt="">
+                            </div>
+
                         </div>
-                        <div class="icon">
-                            <span class="icon-creative"></span>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <h3><a href="services-single-1.html">Consumer Product</a></h3>
-                        <div class="text">
-                            <p>
-                                Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                sed.
-                            </p>
-                        </div>
-                        <div class="btn-box">
-                            <a href="services-single-1.html"><span class="icon-right-arrow"></span></a>
+                        <div class="title-holder">
+                            <h3><a href="{{route('website.formation-details', ['slug' => $formation->slug])}}">{{$formation->name}}</a></h3>
+                            <div class="text">
+                                <p>
+                                    Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
+                                    sed.
+                                </p>
+                            </div>
+                            <div class="btn-box">
+                                <a href="{{route('website.formation-details', ['slug' => $formation->slug])}}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                    </svg>
+                                </a>                            
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--End Single Service Style2-->
+                <!--End Single Service Style2-->               
+            @endforeach
 
 
-            <!--Start Single Service Style2-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                <div class="single-service-style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="assets/images/services/service-v1-1.jpg" alt="">
-                        </div>
-                        <div class="icon">
-                            <span class="icon-creative"></span>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <h3><a href="services-single-1.html">Consumer Product</a></h3>
-                        <div class="text">
-                            <p>
-                                Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                sed.
-                            </p>
-                        </div>
-                        <div class="btn-box">
-                            <a href="services-single-1.html"><span class="icon-right-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Service Style2-->
-
-
-
-            <!--Start Single Service Style2-->
-            <div class="col-xl-4 col-lg-4 wow fadeInDown" data-wow-delay="300ms" data-wow-duration="1500ms">
-                <div class="single-service-style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="assets/images/services/service-v1-2.jpg" alt="">
-                        </div>
-                        <div class="icon">
-                            <span class="icon-business"></span>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <h3><a href="services-single-2.html">Banking Advising</a></h3>
-                        <div class="text">
-                            <p>
-                                Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                sed.
-                            </p>
-                        </div>
-                        <div class="btn-box">
-                            <a href="services-single-2.html"><span class="icon-right-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Service Style2-->
-            <!--Start Single Service Style2-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1500ms">
-                <div class="single-service-style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="assets/images/services/service-v1-3.jpg" alt="">
-                        </div>
-                        <div class="icon">
-                            <span class="icon-global"></span>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <h3><a href="services-single-3.html">Marketing Rules</a></h3>
-                        <div class="text">
-                            <p>
-                                Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                sed.
-                            </p>
-                        </div>
-                        <div class="btn-box">
-                            <a href="services-single-3.html"><span class="icon-right-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Service Style2-->
-
-            <!--Start Single Service Style2-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                <div class="single-service-style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="assets/images/services/service-v1-4.jpg" alt="">
-                        </div>
-                        <div class="icon">
-                            <span class="icon-mobile-analytics"></span>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <h3><a href="services-single-4.html">Business Growth</a></h3>
-                        <div class="text">
-                            <p>
-                                Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                sed.
-                            </p>
-                        </div>
-                        <div class="btn-box">
-                            <a href="services-single-4.html"><span class="icon-right-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Service Style2-->
-            <!--Start Single Service Style2-->
-            <div class="col-xl-4 col-lg-4 wow fadeInDown" data-wow-delay="300ms" data-wow-duration="1500ms">
-                <div class="single-service-style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="assets/images/services/service-v1-5.jpg" alt="">
-                        </div>
-                        <div class="icon">
-                            <span class="icon-analysis"></span>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <h3><a href="services-single-5.html">Audit Marketing</a></h3>
-                        <div class="text">
-                            <p>
-                                Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                sed.
-                            </p>
-                        </div>
-                        <div class="btn-box">
-                            <a href="services-single-5.html"><span class="icon-right-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Service Style2-->
-            <!--Start Single Service Style2-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1500ms">
-                <div class="single-service-style2">
-                    <div class="img-holder">
-                        <div class="inner">
-                            <img src="assets/images/services/service-v1-6.jpg" alt="">
-                        </div>
-                        <div class="icon">
-                            <span class="icon-creative-1"></span>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <h3><a href="services-single-6.html">Financial Advice</a></h3>
-                        <div class="text">
-                            <p>
-                                Lorem ipsum dolor sit don amet tristique ante vel dictum is not rhoncus elit
-                                sed.
-                            </p>
-                        </div>
-                        <div class="btn-box">
-                            <a href="services-single-6.html"><span class="icon-right-arrow"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Single Service Style2-->
 
         </div>
     </div>
