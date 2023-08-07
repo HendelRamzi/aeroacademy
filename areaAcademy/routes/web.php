@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Formation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,100 +32,3 @@ Route::get('/contactez-nous', function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
-
-/**
- * Admin Routes
- */
-
- Route::prefix('admin')->group(function(){
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
-
-
-    Route::prefix('formations')->group(function(){
-
-        
-        Route::get('/list', function(){
-            return view('admin.formations.index');
-        })->name('admin.formations.index');
-
-
-        Route::get('/details/{id}', function($id){
-            try{
-                $formation = Formation::find($id); 
-                return view('admin.formations.details', [
-                    'formation' => $formation
-                ]);
-            }catch(\Exception $e){
-                // Handle the error
-            }
-        })->name('admin.formations.details');
-
-
-        Route::get('/edit/{id}', function($id){
-            try{
-                $formation = Formation::find($id);
-                return view('admin.formations.edit', [
-                    'formation' => $formation
-                ]);
-            }catch(\Exception $error){
-                // Handel the error
-            }
-        })->name('admin.formations.edit');
-
-
-        
-        Route::get('/create', function(){
-            return view('admin.formations.create');
-        })->name('admin.formations.create');
-
-    });
-
-    Route::prefix('contacts')->group(function(){
-                
-        Route::get('/list', function(){
-            return view('admin.contacts.index');
-        })->name('admin.contacts.index');
-
-        Route::get('/details/{id}', function($id){
-            try{
-                $formation = Contact::find($id); 
-                return view('admin.contacts.details', [
-                    'formation' => $formation
-                ]);
-            }catch(\Exception $e){
-                // Handle the error
-            }
-        })->name('admin.contacts.details');
-
-
-
-    });
-
-
-});
-
-
-
-
-
-
-
-
-// Handel the image load filepond logic
-Route::prefix('image')->group(function (){
-
-    Route::get('/load/formation/thumb/{image}', function($image){
-        $headers = [
-            "Content-Disposition" => "inline"
-        ];
-        return Storage::download('/formation//'.$image, $image, $headers);
-    });
-
-
-});
-
